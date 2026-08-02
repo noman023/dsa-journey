@@ -29,6 +29,30 @@ void preorder(Node *root) // preorder traversal
     preorder(root->right);
 }
 
+void inorder(Node *root) // inorder traversal
+{
+    if (root == NULL)
+    {
+        return;
+    }
+
+    inorder(root->left);
+    cout << root->val << endl;
+    inorder(root->right);
+}
+
+void postorder(Node *root) // postorder traversal
+{
+    if (root == NULL)
+    {
+        return;
+    }
+
+    postorder(root->left);
+    postorder(root->right);
+    cout << root->val << endl;
+}
+
 int main()
 {
     Node *root = new Node(10);
@@ -46,7 +70,7 @@ int main()
     b->left = d;
     b->right = e;
 
-    preorder(root);
+    postorder(root);
 
     return 0;
 }
