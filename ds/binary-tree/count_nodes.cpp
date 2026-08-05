@@ -68,7 +68,7 @@ Node *binary_tree_input()
     return root;
 }
 
-int count_leaf_nodes(Node *root)
+int count_nodes(Node *root)
 {
     if (root == NULL)
     {
@@ -80,8 +80,8 @@ int count_leaf_nodes(Node *root)
         return 1;
     }
 
-    int l = count_leaf_nodes(root->left);
-    int r = count_leaf_nodes(root->right);
+    int l = count_nodes(root->left);
+    int r = count_nodes(root->right);
 
     return l + r + 1;
 }
@@ -89,8 +89,8 @@ int count_leaf_nodes(Node *root)
 int main()
 {
     auto root = binary_tree_input();
-    int leaf_nodes = count_leaf_nodes(root);
+    int nodes = count_nodes(root);
 
-    cout << leaf_nodes << endl;
+    cout << nodes << endl;
     return 0;
 }
