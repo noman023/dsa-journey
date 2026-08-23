@@ -2,7 +2,7 @@
 using namespace std;
 
 vector<int> adj_list[5];
-int visited[5];
+bool visited[5];
 
 void bfs(int src)
 {
