@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int> adj_list[5];
+int visited[5];
+
+void bfs(int src)
+{
+    queue<int> q;
+    q.push(src);
+    visited[src] = true;
+
+    while (!q.empty())
+    {
+        int parent = q.front();
+        q.pop();
+
+        cout << parent << " ";
+
+        for (int child : adj_list[parent])
+        {
+            if (!visited[child])
+            {
+                q.push(child);
+                visited[child] = true;
+            }
+        }
+    }
+}
+
+int main()
+{
+    int n, e;
+    cin >> n >> e;
+
+    while (e--)
+    {
+        int a, b;
+        cin >> a >> b;
+
+        adj_list[a].push_back(b);
+        adj_list[b].push_back(a);
+    }
+
+    memset(visited, false, sizeof(visited));
+    bfs(2);
+    return 0;
+}
